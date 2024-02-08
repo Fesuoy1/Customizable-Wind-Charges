@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "package": "org.mod.cwcharges.mixins",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "BreezeWindChargeEntityMixin",
+    "WindChargeEntityMixin",
+    "WindChargeItemMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+	}
+}
