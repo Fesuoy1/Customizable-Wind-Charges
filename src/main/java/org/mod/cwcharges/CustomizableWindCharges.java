@@ -23,9 +23,6 @@ public class CustomizableWindCharges implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		LOGGER.info("Customizable Wind Charges Initialized");
-		LOGGER.warn("If you get the warning: " +
-				"\"@Final field EXPLOSION_BEHAVIOR:Lnet/minecraft/entity/projectile/WindChargeEntity$WindChargeExplosionBehavior; in customizable_wind_charges.mixins.json:WindChargeEntityMixin from mod customizable_wind_charges should be final\"" +
-				" or anything similar, You can ignore it as it doesn't affect the mod itself.");
 
 		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
 			dispatcher.register(CommandManager.literal("setWindChargeCooldown")
