@@ -5,6 +5,7 @@
   "mixins": [
     "BreezeWindChargeEntityMixin",
     "WindChargeEntityMixin",
+    "WindChargeExplosionBehaviorMixin",
     "WindChargeItemMixin"
   ],
   "injectors": {
