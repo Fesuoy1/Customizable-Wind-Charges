@@ -1,4 +1,4 @@
-Modrinth page: https://modrinth.com/mod/customizable-wind=charges
+Modrinth page: https://modrinth.com/mod/customizable-wind-charges
 
 ### Made in 1 day.
 
