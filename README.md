@@ -1,3 +1,5 @@
+Modrinth page: https://modrinth.com/mod/customizable-wind=charges
+
 ### Made in 1 day.
 
 ## Commands Currently added
