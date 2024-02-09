@@ -3,4 +3,5 @@
 ## Commands Currently added
 
 - /setWindChargeCooldown [number] (Set it to 0 for no cooldown!)
-- /setWindChargePower [number] (Default power is 1.0, Increase for more range/knockback!)
+- /setWindChargePower [number] (Default power is 1.0.)
+- /setWindChargeKnockback [number] (Default knockback value is 1.1, Increase for more knockback!)
