@@ -1,60 +1,52 @@
 package org.mod.cwcharges;
 
-import com.mojang.brigadier.arguments.FloatArgumentType;
-import com.mojang.brigadier.arguments.IntegerArgumentType;
-
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 
-import net.minecraft.server.command.CommandManager;
-import net.minecraft.text.Text;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
+import net.fabricmc.fabric.api.gamerule.v1.GameRuleFactory;
+import net.fabricmc.fabric.api.gamerule.v1.GameRuleRegistry;
+
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.world.GameRules;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class CustomizableWindCharges implements ModInitializer {
 
-	private static final Integer SUCCESS = 1;
 
 	public static final String MOD_ID = "customizable_wind_charges";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
-	// The following variables will be used in mixins
-	public static Integer cooldown = 10;
-	public static Float power = 1.0f;
-	public static Float knockback = 1.1f;
+	private static final GameRules.Key<GameRules.IntRule> COOLDOWN =
+			GameRuleRegistry.register("windChargeCooldown", GameRules.Category.PLAYER, GameRuleFactory.createIntRule(10));
+
+	private static final GameRules.Key<GameRules.IntRule> POWER =
+			GameRuleRegistry.register("windChargePower", GameRules.Category.PLAYER, GameRuleFactory.createIntRule(1));
+
+
+	private static final GameRules.Key<GameRules.IntRule> KNOCKBACK =
+			GameRuleRegistry.register("windChargeKnockback", GameRules.Category.PLAYER, GameRuleFactory.createIntRule(1));
+
+	public static MinecraftServer server;
+
+	public static Integer getCooldown() {
+		return server.getGameRules().getInt(COOLDOWN);
+	}
+
+	public static Float getPower() {
+		return (float)server.getGameRules().getInt(POWER);
+	}
+
+	public static Float getKnockback() {
+		return (float)server.getGameRules().getInt(KNOCKBACK) == 1 ? 1.1f : server.getGameRules().getInt(KNOCKBACK);
+	}
 
 	@Override
 	public void onInitialize() {
 		LOGGER.info("Customizable Wind Charges Initialized");
 
-		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
-			dispatcher.register(CommandManager.literal("setWindChargeCooldown")
-					.requires(source -> source.hasPermissionLevel(3))
-					.then(CommandManager.argument("cooldown", IntegerArgumentType.integer(0))
-							.executes((context) -> {
-								cooldown = IntegerArgumentType.getInteger(context, "cooldown");
-								context.getSource().sendFeedback(() -> Text.literal("Now set Wind Charge Cooldown to " + cooldown), false);
-								return SUCCESS;
-							})));
-
-			dispatcher.register(CommandManager.literal("setWindChargePower")
-					.requires(source -> source.hasPermissionLevel(3))
-					.then(CommandManager.argument("power", FloatArgumentType.floatArg(0))
-							.executes((context) -> {
-								power = FloatArgumentType.getFloat(context, "power");
-								context.getSource().sendFeedback(() -> Text.literal("Now set Wind Charge Power to " + power), false);
-								return SUCCESS;
-							})));
-
-			dispatcher.register(CommandManager.literal("setWindChargeKnockback")
-					.requires(source -> source.hasPermissionLevel(3))
-					.then(CommandManager.argument("knockback", FloatArgumentType.floatArg(0))
-							.executes((context) -> {
-								knockback = FloatArgumentType.getFloat(context, "knockback");
-								context.getSource().sendFeedback(() -> Text.literal("Now set Wind Charge Knockback to " + knockback), false);
-								return SUCCESS;
-							})));
-		});
+		ServerLifecycleEvents.SERVER_STARTED.register(server -> CustomizableWindCharges.server = server);
+		ServerLifecycleEvents.SERVER_STOPPED.register(server -> CustomizableWindCharges.server = null);
 	}
 }

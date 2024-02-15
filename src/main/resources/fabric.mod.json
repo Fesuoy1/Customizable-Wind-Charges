@@ -3,7 +3,7 @@
 	"id": "customizable_wind_charges",
 	"version": "${version}",
 	"name": "Customizable Wind Charges",
-	"description": "Adds command to modify wind charges",
+	"description": "Adds commands to modify wind charges",
 	"authors": [
 		"Fesuoy"
 	],
@@ -23,8 +23,8 @@
 		"customizable_wind_charges.mixins.json"
 	],
 	"depends": {
-		"fabricloader": ">=0.15.6",
-		"minecraft": "1.20.5-alpha.24.6.a",
+		"fabricloader": ">=0.14.9",
+		"minecraft": "1.20.5-alpha.24.7.a",
 		"java": ">=17",
 		"fabric-api": "*"
 	}
