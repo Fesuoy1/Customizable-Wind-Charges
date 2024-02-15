@@ -22,11 +22,11 @@ public class CustomizableWindCharges implements ModInitializer {
 			GameRuleRegistry.register("windChargeCooldown", GameRules.Category.PLAYER, GameRuleFactory.createIntRule(10));
 
 	private static final GameRules.Key<GameRules.IntRule> POWER =
-			GameRuleRegistry.register("windChargePower", GameRules.Category.PLAYER, GameRuleFactory.createIntRule(1));
+			GameRuleRegistry.register("windChargePower", GameRules.Category.MOBS, GameRuleFactory.createIntRule(1));
 
 
 	private static final GameRules.Key<GameRules.IntRule> KNOCKBACK =
-			GameRuleRegistry.register("windChargeKnockback", GameRules.Category.PLAYER, GameRuleFactory.createIntRule(1));
+			GameRuleRegistry.register("windChargeKnockback", GameRules.Category.MOBS, GameRuleFactory.createIntRule(1));
 
 	public static MinecraftServer server;
 
