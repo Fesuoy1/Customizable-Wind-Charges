@@ -3,13 +3,14 @@
 	"id": "customizable_wind_charges",
 	"version": "${version}",
 	"name": "Customizable Wind Charges",
-	"description": "Adds commands to modify wind charges",
+	"description": "Adds gamerules to modify wind charges",
 	"authors": [
 		"Fesuoy"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://modrinth.com/mod/customizable-wind-charges",
+		"sources": "https://github.com/Fesuoy1/Customizable-Wind-Charges-1.20.X",
+		"issues": "https://github.com/Fesuoy1/Customizable-Wind-Charges-1.20.X/issues"
 	},
 	"license": "MIT",
 	"icon": "assets/customizable_wind_charges/icon.png",

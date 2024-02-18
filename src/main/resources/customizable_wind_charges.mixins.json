@@ -3,8 +3,8 @@
   "package": "org.mod.cwcharges.mixins",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "ExplosionBehaviorMixin",
     "BreezeWindChargeEntityMixin",
+    "ExplosionBehaviorMixin",
     "WindChargeEntityMixin",
     "WindChargeExplosionBehaviorMixin",
     "WindChargeItemMixin"
