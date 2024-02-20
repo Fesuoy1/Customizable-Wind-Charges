@@ -11,4 +11,4 @@ This mod adds a few gamerules that should make wind charges more useful/customiz
 ##
 
 ## Note that this also affects breeze's wind charges.
-I am planning to try seperating this to another few gamerules.
+I am planning to try separating this to another few gamerules.
