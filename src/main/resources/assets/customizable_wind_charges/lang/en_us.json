@@ -1,5 +1,5 @@
 {
-  "gamerule.windChargeCooldown": "Wind Charge Cooldown",
+  "gamerule.windChargeCooldown": "Wind Charge Item Cooldown",
   "gamerule.windChargePower": "Wind Charge Power",
   "gamerule.windChargeKnockback": "Wind Charge Knockback"
 }
