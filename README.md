@@ -1,9 +1,14 @@
 Modrinth page: https://modrinth.com/mod/customizable-wind-charges
 
-### Made in 1 day.
+## Want more control over wind charges?
+This mod adds a few gamerules that should make wind charges more useful/customizable.
 
-## Commands Currently added
+## Gamerules Implemented
+- /gamerule windChargeCooldown [number, defaulted to 10]
+- /gamerule windChargePower [number, defaulted to 1]
+- /gamerule windChargeKnockback [number, defaulted to 1]
 
-- /setWindChargeCooldown [number] (Set it to 0 for no cooldown!)
-- /setWindChargePower [number] (Default power is 1.0.)
-- /setWindChargeKnockback [number] (Default knockback value is 1.1, Increase for more knockback!)
+##
+
+## Note that this also affects breeze's wind charges.
+I am planning to try separating this to another few gamerules.
