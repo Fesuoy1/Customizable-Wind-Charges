@@ -5,8 +5,8 @@ import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.fabric.api.gamerule.v1.GameRuleFactory;
 import net.fabricmc.fabric.api.gamerule.v1.GameRuleRegistry;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.util.math.random.Random;
 import net.minecraft.world.GameRules;
+
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,7 +19,6 @@ public class CustomizableWindCharges implements ModInitializer {
 
     @Nullable
     public static MinecraftServer server;
-    public static Random random = server != null ? server.getOverworld().getRandom() : Random.create();
 
     public static GameRules.Key<GameRules.IntRule> COOLDOWN = GameRuleRegistry.register("windChargeCooldown", GameRules.Category.PLAYER, GameRuleFactory.createIntRule(10));
     public static GameRules.Key<GameRules.IntRule> POWER = GameRuleRegistry.register("windChargePower", GameRules.Category.MOBS, GameRuleFactory.createIntRule(1));
@@ -41,7 +40,7 @@ public class CustomizableWindCharges implements ModInitializer {
 
     public static Float getKnockback() {
         if (server == null) {
-            return 1.0f;
+            return 1.1f;
         }
         return (float) server.getGameRules().getInt(KNOCKBACK) == 1 ? 1.1f : server.getGameRules().getInt(KNOCKBACK);
     }
