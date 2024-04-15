@@ -1,5 +1,7 @@
 Modrinth page: https://modrinth.com/mod/customizable-wind-charges
 
+Took a break from updating this mod for a few weeks. I may come back later.
+
 ## Want more control over wind charges?
 This mod adds a few gamerules that should make wind charges more useful/customizable.
 
