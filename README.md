@@ -1,3 +1,5 @@
+### I have lost interest in developing mods for minecraft as i don't find them fun anymore, I may update/port this to future versions but that's highly unlikely. I recommend updating this yourselves by forking this repository.
+
 Modrinth page: https://modrinth.com/mod/customizable-wind-charges
 
 ## Want more control over wind charges?
