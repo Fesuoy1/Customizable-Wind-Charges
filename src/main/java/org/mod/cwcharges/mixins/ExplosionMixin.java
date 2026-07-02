@@ -23,8 +23,11 @@ public class ExplosionMixin {
         } else if (explosion.getIndirectSourceEntity() != null) {
             entity = explosion.getIndirectSourceEntity();
         }
-        if (entity != null && (entity.getType() == EntityType.WIND_CHARGE || entity.getType() == EntityType.BREEZE_WIND_CHARGE)) {
-            return new Vec3(d, e, f).scale(getKnockback());
+        if (entity != null && entity.getType() == EntityType.WIND_CHARGE) {
+            return new Vec3(d, e, f).scale(getPlayerKnockback());
+        }
+        if (entity != null && entity.getType() == EntityType.BREEZE_WIND_CHARGE) {
+            return new Vec3(d, e, f).scale(getBreezeKnockback());
         }
        return new Vec3(d, e, f);
     }

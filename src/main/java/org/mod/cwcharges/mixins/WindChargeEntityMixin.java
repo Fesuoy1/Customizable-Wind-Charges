@@ -5,7 +5,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 
-import static org.mod.cwcharges.CustomizableWindCharges.*;
+import static org.mod.cwcharges.CustomizableWindCharges.getPlayerPower;
 
 @Mixin(WindCharge.class)
 public class WindChargeEntityMixin {
@@ -15,6 +15,6 @@ public class WindChargeEntityMixin {
         ), index = 6
     )
     public float explode$modify(float g) {
-        return getPower(false);
+        return getPlayerPower();
     }
 }

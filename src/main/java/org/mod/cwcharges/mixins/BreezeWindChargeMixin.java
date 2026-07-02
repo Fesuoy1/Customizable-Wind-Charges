@@ -5,7 +5,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 
-import static org.mod.cwcharges.CustomizableWindCharges.getPower;
+import static org.mod.cwcharges.CustomizableWindCharges.getBreezePower;
 
 @Mixin(BreezeWindCharge.class)
 public class BreezeWindChargeMixin {
@@ -15,6 +15,6 @@ public class BreezeWindChargeMixin {
         ), index = 6
     )
     public float explode$modify(float g) {
-        return getPower(true);
+        return getBreezePower();
     }
 }

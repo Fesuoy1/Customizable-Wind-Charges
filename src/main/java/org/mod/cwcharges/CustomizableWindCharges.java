@@ -20,12 +20,21 @@ public class CustomizableWindCharges implements ModInitializer {
     @Nullable
     public static MinecraftServer server;
 
+    // Player Wind Charge gamerules
     public static GameRules.Key<GameRules.IntegerValue> COOLDOWN = GameRuleRegistry
             .register("windChargeCooldown", GameRules.Category.PLAYER, GameRuleFactory.createIntRule(10));
-    public static GameRules.Key<GameRules.IntegerValue> POWER = GameRuleRegistry
+    public static GameRules.Key<GameRules.IntegerValue> PLAYER_POWER = GameRuleRegistry
             .register("windChargePower", GameRules.Category.MOBS, GameRuleFactory.createIntRule(1));
-    public static GameRules.Key<GameRules.IntegerValue> KNOCKBACK = GameRuleRegistry
+    public static GameRules.Key<GameRules.IntegerValue> PLAYER_KNOCKBACK = GameRuleRegistry
             .register("windChargeKnockback", GameRules.Category.MOBS, GameRuleFactory.createIntRule(1));
+
+    // Breeze Wind Charge gamerules
+    public static GameRules.Key<GameRules.IntegerValue> BREEZE_POWER = GameRuleRegistry
+            .register("breezeWindChargePower", GameRules.Category.MOBS, GameRuleFactory.createIntRule(3));
+    public static GameRules.Key<GameRules.IntegerValue> BREEZE_KNOCKBACK = GameRuleRegistry
+            .register("breezeWindChargeKnockback", GameRules.Category.MOBS, GameRuleFactory.createIntRule(1));
+
+    // --- Player Wind Charge getters ---
 
     public static Integer getCooldown() {
         if (server == null) {
@@ -34,19 +43,35 @@ public class CustomizableWindCharges implements ModInitializer {
         return server.getGameRules().getInt(COOLDOWN);
     }
 
-    public static Float getPower(boolean breeze) {
+    public static Float getPlayerPower() {
         if (server == null) {
-            return breeze ? 3.0f : 1.2f;
+            return 1.2f;
         }
-        int power = server.getGameRules().getInt(POWER);
-        return breeze ? (power == 1 ? 3.0f : power) : (power == 1 ? 1.2f : power);
+        int power = server.getGameRules().getInt(PLAYER_POWER);
+        return power == 1 ? 1.2f : (float) power;
     }
 
-    public static Float getKnockback() {
+    public static Float getPlayerKnockback() {
         if (server == null) {
             return 1.0f;
         }
-        return (float)server.getGameRules().getInt(KNOCKBACK);
+        return (float) server.getGameRules().getInt(PLAYER_KNOCKBACK);
+    }
+
+    // --- Breeze Wind Charge getters ---
+
+    public static Float getBreezePower() {
+        if (server == null) {
+            return 3.0f;
+        }
+        return (float) server.getGameRules().getInt(BREEZE_POWER);
+    }
+
+    public static Float getBreezeKnockback() {
+        if (server == null) {
+            return 1.0f;
+        }
+        return (float) server.getGameRules().getInt(BREEZE_KNOCKBACK);
     }
 
     @Override
