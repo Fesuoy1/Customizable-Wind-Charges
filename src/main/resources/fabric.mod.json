@@ -9,8 +9,8 @@
 	],
 	"contact": {
 		"homepage": "https://modrinth.com/mod/customizable-wind-charges",
-		"sources": "https://github.com/Fesuoy1/Customizable-Wind-Charges-1.20.X",
-		"issues": "https://github.com/Fesuoy1/Customizable-Wind-Charges-1.20.X/issues"
+		"sources": "https://github.com/Fesuoy1/Customizable-Wind-Charges",
+		"issues": "https://github.com/Fesuoy1/Customizable-Wind-Charges/issues"
 	},
 	"license": "MIT",
 	"icon": "assets/customizable_wind_charges/icon.png",
@@ -24,9 +24,9 @@
 		"customizable_wind_charges.mixins.json"
 	],
 	"depends": {
-		"fabricloader": ">=0.14.9",
-		"minecraft": "1.20.5",
-		"java": ">=17",
+		"fabricloader": ">=0.15.0",
+		"minecraft": "~1.21.1",
+		"java": ">=21",
 		"fabric-api": "*"
 	}
 }

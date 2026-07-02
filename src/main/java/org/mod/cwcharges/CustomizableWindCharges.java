@@ -5,7 +5,7 @@ import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.fabric.api.gamerule.v1.GameRuleFactory;
 import net.fabricmc.fabric.api.gamerule.v1.GameRuleRegistry;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.world.GameRules;
+import net.minecraft.world.level.GameRules;
 
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
@@ -20,9 +20,12 @@ public class CustomizableWindCharges implements ModInitializer {
     @Nullable
     public static MinecraftServer server;
 
-    public static GameRules.Key<GameRules.IntRule> COOLDOWN = GameRuleRegistry.register("windChargeCooldown", GameRules.Category.PLAYER, GameRuleFactory.createIntRule(10));
-    public static GameRules.Key<GameRules.IntRule> POWER = GameRuleRegistry.register("windChargePower", GameRules.Category.MOBS, GameRuleFactory.createIntRule(1));
-    public static GameRules.Key<GameRules.IntRule> KNOCKBACK = GameRuleRegistry.register("windChargeKnockback", GameRules.Category.MOBS, GameRuleFactory.createIntRule(1));
+    public static GameRules.Key<GameRules.IntegerValue> COOLDOWN = GameRuleRegistry
+            .register("windChargeCooldown", GameRules.Category.PLAYER, GameRuleFactory.createIntRule(10));
+    public static GameRules.Key<GameRules.IntegerValue> POWER = GameRuleRegistry
+            .register("windChargePower", GameRules.Category.MOBS, GameRuleFactory.createIntRule(1));
+    public static GameRules.Key<GameRules.IntegerValue> KNOCKBACK = GameRuleRegistry
+            .register("windChargeKnockback", GameRules.Category.MOBS, GameRuleFactory.createIntRule(1));
 
     public static Integer getCooldown() {
         if (server == null) {
@@ -31,25 +34,26 @@ public class CustomizableWindCharges implements ModInitializer {
         return server.getGameRules().getInt(COOLDOWN);
     }
 
-    public static Float getPower() {
+    public static Float getPower(boolean breeze) {
         if (server == null) {
-            return 1.0f;
+            return breeze ? 3.0f : 1.2f;
         }
-        return (float) server.getGameRules().getInt(POWER);
+        int power = server.getGameRules().getInt(POWER);
+        return breeze ? (power == 1 ? 3.0f : power) : (power == 1 ? 1.2f : power);
     }
 
     public static Float getKnockback() {
         if (server == null) {
-            return 1.1f;
+            return 1.0f;
         }
-        return (float) server.getGameRules().getInt(KNOCKBACK) == 1 ? 1.1f : server.getGameRules().getInt(KNOCKBACK);
+        return (float)server.getGameRules().getInt(KNOCKBACK);
     }
 
     @Override
     public void onInitialize() {
-        LOGGER.info("Customizable Wind Charges Initialized");
-
         ServerLifecycleEvents.SERVER_STARTED.register(server -> CustomizableWindCharges.server = server);
         ServerLifecycleEvents.SERVER_STOPPED.register(server -> CustomizableWindCharges.server = null);
+
+        LOGGER.info("Customizable Wind Charges Initialized");
     }
 }
