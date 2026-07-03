@@ -4,9 +4,9 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "BreezeWindChargeMixin",
-    "ExplosionMixin",
-    "WindChargeEntityMixin",
-    "WindChargeItemMixin"
+    "ServerExplosionMixin",
+    "WindChargeMixin",
+    "ItemCooldownsMixin"
   ],
   "injectors": {
     "defaultRequire": 1

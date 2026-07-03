@@ -1,7 +1,7 @@
 {
-  "gamerule.windChargeCooldown": "Wind Charge Item Cooldown",
-  "gamerule.windChargePower": "Wind Charge Power",
-  "gamerule.windChargeKnockback": "Wind Charge Knockback",
-  "gamerule.breezeWindChargePower": "Breeze Wind Charge Power",
-  "gamerule.breezeWindChargeKnockback": "Breeze Wind Charge Knockback"
+  "gamerule.customizable_wind_charges.wind_charge_cooldown": "Wind Charge Item Cooldown",
+  "gamerule.customizable_wind_charges.wind_charge_power": "Wind Charge Power",
+  "gamerule.customizable_wind_charges.wind_charge_knockback": "Wind Charge Knockback Multiplier",
+  "gamerule.customizable_wind_charges.breeze_wind_charge_power": "Breeze Wind Charge Power",
+  "gamerule.customizable_wind_charges.breeze_wind_charge_knockback": "Breeze Wind Charge Knockback Multiplier"
 }
