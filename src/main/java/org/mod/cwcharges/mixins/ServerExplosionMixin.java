@@ -1,7 +1,7 @@
 package org.mod.cwcharges.mixins;
 
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.level.ExplosionDamageCalculator;
 import net.minecraft.world.level.ServerExplosion;
 
@@ -18,18 +18,18 @@ public class ServerExplosionMixin {
     public float onGetKnockbackMultiplier(ExplosionDamageCalculator calculator, Entity entity) {
         ServerExplosion explosion = (ServerExplosion) (Object) this;
         Entity source = explosion.getDirectSourceEntity();
-        if (source == null || (source != null && source.getType() != EntityType.WIND_CHARGE && source.getType() != EntityType.BREEZE_WIND_CHARGE))
+        if (source == null || (source != null && source.getType() != EntityTypes.WIND_CHARGE && source.getType() != EntityTypes.BREEZE_WIND_CHARGE))
         {
             source = explosion.getDamageSource().getDirectEntity();
-            if (source == null || (source != null && source.getType() != EntityType.WIND_CHARGE && source.getType() != EntityType.BREEZE_WIND_CHARGE))
+            if (source == null || (source != null && source.getType() != EntityTypes.WIND_CHARGE && source.getType() != EntityTypes.BREEZE_WIND_CHARGE))
             {
                 source = explosion.getDamageSource().getEntity();
             }
         }
-        if (source != null && source.getType() == EntityType.WIND_CHARGE) {
+        if (source != null && source.getType() == EntityTypes.WIND_CHARGE) {
             return calculator.getKnockbackMultiplier(entity) * getPlayerKnockback().floatValue();
         }
-        if (source != null && source.getType() == EntityType.BREEZE_WIND_CHARGE) {
+        if (source != null && source.getType() == EntityTypes.BREEZE_WIND_CHARGE) {
             return calculator.getKnockbackMultiplier(entity) * getBreezeKnockback().floatValue();
         }
         return calculator.getKnockbackMultiplier(entity);
