@@ -20,6 +20,14 @@
 			"org.mod.cwcharges.CustomizableWindCharges"
 		]
 	},
+	"custom": {
+		"modmenu": {
+			"links": {
+				"modmenu.modrinth": "https://modrinth.com/mod/customizable-wind-charges"
+			},
+			"update_checker": true
+		}
+	},
 	"mixins": [
 		"customizable_wind_charges.mixins.json"
 	],
